@@ -24,5 +24,7 @@ for url in url_list:
 all_data = pd.concat(dfs)
 
 # Save the file into csv file with a timestamp
-timestr = time.strftime("%Y%m%d-%H%M%S")
-all_data.to_csv(f'raw_finviz_data_{timestr}.csv')
+# timestr = time.strftime("%Y%m%d-%H%M%S")
+# all_data.to_csv(f'raw_finviz_data_{timestr}.csv')
+
+print(all_data)
