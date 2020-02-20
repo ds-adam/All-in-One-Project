@@ -24,7 +24,8 @@ df = pd.DataFrame(data['candles'])
 df['date'] = pd.to_datetime(df['datetime'], unit='ms')
 
 # save the data  in csv format
-df.to_csv(f'{ticker}_data.csv')
+# timestr = time.strftime("%Y%m%d-%H%M%S")
+# df.to_csv(f'{ticker}_data_{timestr}.csv')
 
 # plot the data to quickly check
 plt.plot(df['date'], df['open'])
