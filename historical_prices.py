@@ -1,16 +1,24 @@
 import requests
 import matplotlib.pyplot as plt
+import matplotlib
+matplotlib.use('TkAgg') 
 import pandas as pd 
 import time
 from bs4 import BeautifulSoup 
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
+from matplotlib.figure import Figure
+
 
 # define the url
 # ticker_raw = input(f'Please enter ticker symbol: ')
 # period = int(input(f'Please enter # of years: '))
 
+figure = Figure(figsize=(7,3), dpi=100)
+
 def ticker_graph(ticker, period):
     ticker = ticker.strip().upper()
-    period = period.strip()
+    period = period
+    # period = period.strip()
     
     url_for_price = f"https://api.tdameritrade.com/v1/marketdata/{ticker}/pricehistory"
 
@@ -44,10 +52,11 @@ def ticker_graph(ticker, period):
     # df.to_csv(f'{ticker}_data_{timestr}.csv')
 
     # plot the data to quickly check
-    plt.plot(df['date'], df['open'])
-    plt.title(f'{company_title} - {period} years.')
-    plt.xlabel('date')
-    plt.ylabel('price')
-    plt.show()
+    graphs = figure.add_subplot(111).plot(df['date'], df['open'])
+
+    graphs.set_text(f'{company_title} - {period} years.')
+    # graphs.set_xlabel('date')
+    # graphs.set_ylabel('price')
+    # # plt.show()
 
 # ticker_graph('FB', 5)
