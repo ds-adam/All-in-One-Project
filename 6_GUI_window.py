@@ -127,3 +127,6 @@ print(result)
 window.mainloop()
 
 
+### Next steps are to link doc names with their corresponding links and making sure that with one click,
+### one can go directly to the documents, NOT to the website. Also, additional information should be added (like the one scraped from
+### finviz)
