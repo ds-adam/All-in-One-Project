@@ -4,6 +4,7 @@ from historical_prices import figure as figure
 import sys
 import sec_filings_execution as sfe
 import entries
+from hyperlink_mng import *
 
 # Dimentions of the Overall Window
 HEIGHT = 600
@@ -108,6 +109,7 @@ canvas.draw()
 canvas.get_tk_widget().place(relx=0.4, rely=0.06)
 
 sec = Text(window) 
+hyperlink = HyperlinkManager(sec)
 sec.place(relx=0.4, rely=0.60)
 
 class PrintToT1(object): 

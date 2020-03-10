@@ -14,8 +14,9 @@ def execution(ticker, pages_cs):
     timesrt = time.strftime("%Y%m%d-%H%M%S")
     fname = f"sec_{ticker}_{timesrt}.csv"
     final_df = sec_support.save_df_to_csv(data_list, fname)
-    return final_df.head(5)
-
+    # return final_df.head(5)
+    print(final_df.head())
+execution('fb','1,2')
 
 # # checks
 # print(f"***************************\n\t{final_df.head(5)}")
