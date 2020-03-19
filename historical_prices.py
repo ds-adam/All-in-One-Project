@@ -7,7 +7,9 @@ import time
 from bs4 import BeautifulSoup 
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
 from matplotlib.figure import Figure
-
+import sys
+sys.path.insert(0, r'C:\Users\19293\Desktop\DS File\All-in-One-Project\Keys')
+from keys import client_id
 
 # define the url
 # ticker_raw = input(f'Please enter ticker symbol: ')
@@ -23,7 +25,7 @@ def ticker_graph(ticker, period):
     url_for_price = f"https://api.tdameritrade.com/v1/marketdata/{ticker}/pricehistory"
 
     # this part is the control. Change period (years) 
-    attributes = {'apikey':'0VUBGJN2ZEGBQWNSWB3AJAGRGULVTHAJ',
+    attributes = {'apikey': client_id,
                 'periodType':'year',
                 'period': f'{period}',
                 'frequencyType':'daily',
@@ -59,4 +61,4 @@ def ticker_graph(ticker, period):
     # graphs.set_ylabel('price')
     # # plt.show()
 
-# ticker_graph('FB', 5)
+ticker_graph('FB', 5)
