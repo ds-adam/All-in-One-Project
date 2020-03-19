@@ -4,7 +4,7 @@ from historical_prices import figure as figure
 import sys
 import entries
 from hyperlink_mng import *
-
+import sec_filings_execution as sfe
 import matplotlib
 matplotlib.use('TkAgg')
 import numpy as np
@@ -13,7 +13,7 @@ from matplotlib.figure import Figure
 
 # Dimentions of the Overall Window
 HEIGHT = 600
-WIDTH = 600
+WIDTH = 1000
 
 # Overall Window
 window = Tk()
@@ -24,40 +24,46 @@ frame = Frame(window)
 frame.place(x=250, y=500)
 
 
-# price_button = Button(frame, text="Get Hist Prices", fg="black")
-# price_button.pack(side=RIGHT)
+tickers = Entry(frame, bd=2)
+ticker = tickers.get()
+tickers.pack()
+ticker_label = Label(frame, text="Ticker")
+ticker_label.pack()
 
-# price_entry = Entry(frame, bd =5)
-# price_entry.pack(side = RIGHT)
-# price_entry.insert(0, "Enter # of years")
+
+years_prices = Entry(frame, bd=2) 
+year_prices = years_prices.get()
+years_prices.pack()
+years_label = Label(frame, text="Years for Hist Price")
+years_label.pack()
 
 
-# sec_button = Button(frame, text="Get SEC Filings", fg="black")
-# sec_button.pack(side=RIGHT)
+years_sec = Entry(frame, bd=2)
+year_sec = years_sec.get()
+years_sec.pack()
+years_label = Label(frame, text="Years for Filings")
+years_label.pack()
 
-# sec_entry = Entry(frame, bd =5)
-# sec_entry.pack(side = RIGHT)
-# sec_entry.insert(0, "Enter ticker symbol")
+
 
 class sec_filings:
     def __init__(self, window):
         self.window = window
-        self.button = Button(frame, text="Get SEC Filings", fg="black")
-        self.button.pack(side=RIGHT)
-        self.entry = Entry(frame, bd =5)
-        self.entry.pack(side = RIGHT)
-        self.entry.insert(0, "Enter # of years")
+        self.button = Button(frame, text="Get SEC Filings", fg="black", command= self.show)
+        self.button.pack()
 
-
+    def show(self):
+        sfe.execution(ticker, year_sec)
+        fig = Figure(figsize=(3,3))
+        canvas = FigureCanvasTkAgg(fig, master=self.window)
+        canvas.draw()
+        canvas.get_tk_widget().place(relx=0.4, rely=0.06)
 
 class price_history:
     def __init__(self, window):
         self.window = window
         self.button = Button(frame, text="Get Hist Prices", fg="black", command=self.get)
-        self.button.pack(side=RIGHT)
-        self.entry = Entry(frame, bd =5)
-        self.entry.pack(side = RIGHT)
-        self.entry.insert(0, "Enter # of years")
+        self.button.pack()
     
     def get(self):
         x=np.array ([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
@@ -73,7 +79,6 @@ class price_history:
         a.set_xlabel("X", fontsize=14)
 
         canvas = FigureCanvasTkAgg(fig, master=self.window)
-        canvas.get_tk_widget().pack()
         canvas.draw()
         canvas.get_tk_widget().place(relx=0.4, rely=0.06)
 

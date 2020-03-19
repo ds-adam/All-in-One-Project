@@ -61,4 +61,4 @@ def ticker_graph(ticker, period):
     # graphs.set_ylabel('price')
     # # plt.show()
 
-ticker_graph('FB', 5)
+# ticker_graph('FB', 5)
