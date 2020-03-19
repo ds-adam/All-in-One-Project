@@ -66,6 +66,7 @@ def parse_web_page_docs(ticker, pages):
         for filing, format_1, filing_date in zip(filings, urls, filing_dates):
             final_data_list.append({'Filings': filing, 'URLs': format_1, 'Filing Date': filing_date})
     return final_data_list
+    # print(final_data_list)
 
 def save_df_to_csv(list, filename):
     # create a pandas DataFrame from the scraped data. 
@@ -81,3 +82,5 @@ def search_ticker_by_key(keyword):
     # logic
     ticker=keyword
     return ticker
+
+parse_web_page_docs('fb','1,2,3')

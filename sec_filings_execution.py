@@ -5,8 +5,8 @@ import time
 # EXECUTION
 def execution(ticker, pages_cs):
     # pages = list(int(page.strip()) for page in pages_cs.split(','))
-    pages = list((page.strip()) for page in pages_cs.split(','))
-
+    # pages = list((page.strip()) for page in pages_cs.split(','))
+    pages = list(pages_cs)
     # ticker = sec_support.search_ticker_by_key(keyword)
     data_list = sec_support.parse_web_page_docs(ticker, pages)
 
@@ -14,7 +14,6 @@ def execution(ticker, pages_cs):
     timesrt = time.strftime("%Y%m%d-%H%M%S")
     fname = f"sec_{ticker}_{timesrt}.csv"
     final_df = sec_support.save_df_to_csv(data_list, fname)
-    # return final_df.head(5)
     print(final_df.head())
 
 
@@ -25,3 +24,4 @@ def execution(ticker, pages_cs):
 # open(fname,'r')
 # print("Completed!")
 
+# execution('fc','1,2,3')

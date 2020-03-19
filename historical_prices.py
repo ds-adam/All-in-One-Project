@@ -7,6 +7,7 @@ import time
 from bs4 import BeautifulSoup 
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
 from matplotlib.figure import Figure
+
 import sys
 sys.path.insert(0, r'C:\Users\19293\Desktop\DS File\All-in-One-Project\Keys')
 from keys import client_id
@@ -48,17 +49,15 @@ def ticker_graph(ticker, period):
 
     df = pd.DataFrame(data['candles'])
     df['date'] = pd.to_datetime(df['datetime'], unit='ms')
-
     # save the data  in csv format
     # timestr = time.strftime("%Y%m%d-%H%M%S")
     # df.to_csv(f'{ticker}_data_{timestr}.csv')
 
     # plot the data to quickly check
-    graphs = figure.add_subplot(111).plot(df['date'], df['open'])
-
+    # graphs = figure.add_subplot(111).plot(df['date'], df['open'])
     # graphs.set_text(f'{company_title} - {period} years.')
     # graphs.set_xlabel('date')
     # graphs.set_ylabel('price')
-    # # plt.show()
-
-# ticker_graph('FB', 5)
+    plt.figure()
+    plt.plot(df['date'], df['open'])
+    # plt.show()
