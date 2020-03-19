@@ -54,10 +54,9 @@ def ticker_graph(ticker, period):
     # df.to_csv(f'{ticker}_data_{timestr}.csv')
 
     # plot the data to quickly check
-    # graphs = figure.add_subplot(111).plot(df['date'], df['open'])
+    graphs = figure.add_subplot(111).plot(df['date'], df['open'])
     # graphs.set_text(f'{company_title} - {period} years.')
     # graphs.set_xlabel('date')
     # graphs.set_ylabel('price')
-    plt.figure()
-    plt.plot(df['date'], df['open'])
-    # plt.show()
+
+# ticker_graph('fb','2')
