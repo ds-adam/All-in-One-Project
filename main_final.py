@@ -13,6 +13,8 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib.figure import Figure
 from hyperlink_mng import *
 import fund_data_each as fde
+import menu
+
 
 # Dimentions of the Overall Window
 HEIGHT = 600
@@ -140,7 +142,9 @@ class fund_data:
         print(result)
 
 
+
 #EXECUTION
+menu.menu(window)
 tickers(window)
 years_prices(window)
 years_sec(window)
@@ -148,6 +152,14 @@ sec_filings(window)
 price_history(window)
 fund_data(window)
 
+window.config(menu=menu.menubar)
 window.mainloop()
 
 
+"""
+Next steps:
+1) sort SEC Filings
+2) add functionality to the menu
+3) improve grapg's look
+4) make results, including fund_data and sec_data, undeletable but copyable
+"""

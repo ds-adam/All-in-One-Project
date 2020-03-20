@@ -97,5 +97,4 @@ def make_clickable_both(val):
 
 df.reset_index().style.format({'nameurl': make_clickable_both})
 
-print(df.head())
 

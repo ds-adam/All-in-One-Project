@@ -10,7 +10,7 @@ from matplotlib.figure import Figure
 
 import sys
 sys.path.insert(0, r'C:\Users\19293\Desktop\DS File\All-in-One-Project\Keys')
-from keys import client_id
+# from keys import client_id
 
 # define the url
 # ticker_raw = input(f'Please enter ticker symbol: ')
@@ -26,7 +26,7 @@ def ticker_graph(ticker, period):
     url_for_price = f"https://api.tdameritrade.com/v1/marketdata/{ticker}/pricehistory"
 
     # this part is the control. Change period (years) 
-    attributes = {'apikey': client_id,
+    attributes = {'apikey': "0VUBGJN2ZEGBQWNSWB3AJAGRGULVTHAJ",
                 'periodType':'year',
                 'period': f'{period}',
                 'frequencyType':'daily',
