@@ -85,7 +85,6 @@ period.bind("<FocusIn>", shadow_period_text)
 period.place(x=10, y=80)
 
 
-
 # Button for Graph
 button = Button(window, text='Get Hist. Prices', command=lambda: hp.ticker_graph(ticker.get(), period.get()))
 button.place(x=110, y=140)
