@@ -1,6 +1,5 @@
 from tkinter import *
 import historical_prices as hp
-# from historical_prices import figure as figure
 import sys
 import entries
 from hyperlink_mng import *
