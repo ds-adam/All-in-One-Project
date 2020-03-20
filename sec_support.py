@@ -83,4 +83,19 @@ def search_ticker_by_key(keyword):
     ticker=keyword
     return ticker
 
-parse_web_page_docs('fb','1,2,3')
+
+data_list_one = parse_web_page_docs('fb','0')
+df = pd.DataFrame(data_list_one)
+print(df.head())
+
+
+df['nameurl'] = df['Filings'] + '#' + df['URLs']
+
+def make_clickable_both(val): 
+    name, url = val.split('#')
+    return f'<a href="{url}">{name}</a>'
+
+df.reset_index().style.format({'nameurl': make_clickable_both})
+
+print(df.head())
+
