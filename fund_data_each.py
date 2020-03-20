@@ -47,8 +47,6 @@ def get_fund_data(ticker):
 	# its first key and dic_one as its value. This might be a 
 	# better way to store the data (company name and its data 
 	# sould be connected.)
-	# dic_two = {}
-	# dic_two[f'{company_title}'] = dic_one
 
 	# DataFrame of raw data scraped from finviz, company webpage
 	df_raw = pd.DataFrame(dic_one.items(), index=None, columns=['Attribute', 'Value'])
