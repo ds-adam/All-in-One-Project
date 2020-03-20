@@ -1,8 +1,6 @@
 # ALL IN ONE PLACE PROJECT
 In this project, I am trying to create a GUI application that one can use to access all essential corporate information about a given US-based public company by just inputting several parameters. On a high level, the program looks like this: 
 
-!['Ads](C:\Users\19293\Desktop\DS File\All-in-One-Project\All-in-One-Project\images.initial_look.jpg)
-
 
  all tickers of all US-based public companies by scraping finviz.com's main page;  and show it as a graph using TD Ameritrade API and matplotlib. The next part is to scrape fundamental info from websites such as finviz or use an appropriate TD Ameritrade API. 
 
